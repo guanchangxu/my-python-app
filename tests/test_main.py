@@ -1,6 +1,5 @@
 import os
 
-
 from app.main import SecretManager, process_data
 
 
