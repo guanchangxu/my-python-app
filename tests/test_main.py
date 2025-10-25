@@ -1,8 +1,7 @@
 import os
 
-import pytest
 
-from app.main import SecretManager, format_message, process_data
+from app.main import SecretManager, process_data
 
 
 class TestSecretManager:
@@ -14,7 +13,7 @@ class TestSecretManager:
         os.environ["APP_NAME"] = "Test App"
 
         manager = SecretManager()
-        assert manager.validate_secrets() == True
+        assert manager.validate_secrets()
 
         # 清理环境变量
         del os.environ["SECRET_KEY"]
@@ -23,7 +22,7 @@ class TestSecretManager:
     def test_secret_validation_failure(self):
         """测试密钥验证失败"""
         manager = SecretManager()
-        assert manager.validate_secrets() == False
+        assert manager.validate_secrets() is False
 
 
 class TestProcessData:

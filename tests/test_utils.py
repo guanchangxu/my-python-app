@@ -14,11 +14,11 @@ def test_check_text_length():
     """测试文本长度检查"""
     # 测试短文本
     is_ok, message = check_text_length("hello")
-    assert is_ok == True
+    assert is_ok
     assert "合适" in message
 
     # 测试长文本
     long_text = "a" * 150  # 创建150个字符的文本
     is_ok, message = check_text_length(long_text)
-    assert is_ok == False
+    assert is_ok is False
     assert "超过" in message

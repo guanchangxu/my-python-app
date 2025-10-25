@@ -95,7 +95,7 @@ def main():
                 break
 
             result = process_data(user_input)
-            print(f"📊 处理结果:")
+            print("📊 处理结果:")
             print(f"   原始文本: {result['original']}")
             print(f"   格式化后: {result['formatted']}")
             print(f"   字符数: {result['stats']['character_count']}")
