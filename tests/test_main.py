@@ -1,6 +1,8 @@
-import pytest
 import os
-from app.main import SecretManager, process_data, format_message
+
+import pytest
+
+from app.main import SecretManager, format_message, process_data
 
 
 class TestSecretManager:

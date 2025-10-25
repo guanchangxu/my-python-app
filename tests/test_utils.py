@@ -1,4 +1,4 @@
-from app.utils import welcome_message, check_text_length
+from app.utils import check_text_length, welcome_message
 
 
 def test_welcome_message():
