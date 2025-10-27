@@ -1,7 +1,8 @@
+import os
+from typing import Any, Dict, Optional
+
 import mlflow
 import mlflow.sklearn
-from typing import Dict, Any, Optional
-import os
 
 
 class MLflowManager:
