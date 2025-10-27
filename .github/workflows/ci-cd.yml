@@ -78,3 +78,33 @@ jobs:
     - name: Test Docker image
       run: |
         docker run --rm my-python-app:latest python -c "import sys; print('Docker运行成功')"
+
+  mlflow-dvc-test:
+    name: Test MLflow + DVC Integration
+    runs-on: ubuntu-latest
+    needs: testing
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Test MLflow and DVC imports
+      run: |
+        python -c "import mlflow; print('✅ MLflow version:', mlflow.__version__)"
+        python -c "import dvc; print('✅ DVC version:', dvc.__version__)"
+        python -c "import pandas; print('✅ Pandas version:', pandas.__version__)"
+        python -c "import sklearn; print('✅ Scikit-learn version:', sklearn.__version__)"
+        
+    - name: Verify manager classes
+      run: |
+        python -c "from app.mlflow_manager import MLflowManager; from app.data_loader import DataLoader; print('✅ MLflow and DVC manager classes imported successfully')"
